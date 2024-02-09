@@ -10,6 +10,8 @@ This project includes a number of advanced features:
 
 - **Pipes**: Pipes are used to transform output in our templates.
 
+- **Integration with Tailwindcss**: Integration of Tailwindcss framework in AngularV16.
+
 - **Server Side Rendering (SSR)**: For improved performance and SEO, this project uses Server Side Rendering.
 
 - **Progressive Web App (PWA)**: The application is a PWA, providing a near-native app experience on mobile devices.
