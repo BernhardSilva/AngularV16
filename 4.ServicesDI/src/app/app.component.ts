@@ -1,9 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IMessage } from './interfaces/IMessage';
-import { IPost } from './interfaces/IPost';
+
 import { MessagesService } from './services/messages.service';
+import { Message } from './interfaces/message.interface';
+import { Post } from './interfaces/post.interface';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,9 @@ import { MessagesService } from './services/messages.service';
 export class AppComponent implements OnInit {
   title = '4.ServicesDI';
 
-  messages: IMessage[] = this.messagesService.getMessages() || [];
+  messages: Message[] = this.messagesService.getMessages() || [];
 
-  posts$: Observable<IPost[]> | any = [];
+  posts$: Observable<Post[]> | any = [];
 
   loading: boolean = false;
 
@@ -30,7 +31,7 @@ export class AppComponent implements OnInit {
 
   getPosts() {
     this.messagesService.getPosts().subscribe({
-      next: (response: IPost[]) => {
+      next: (response: Post[]) => {
         this.loading = false;
         console.log(response);
         return (this.posts$ = response);
@@ -40,7 +41,7 @@ export class AppComponent implements OnInit {
       },
       complete: () => {
         // setTimeout(() => {
-          this.loading = true;
+        this.loading = true;
         // }, 3000);
         console.log('complete');
       },

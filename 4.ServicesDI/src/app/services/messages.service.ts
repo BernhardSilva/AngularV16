@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { IMessage } from '../interfaces/IMessage';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IPost } from '../interfaces/IPost';
+import { Message } from '../interfaces/message.interface';
+import { Post } from '../interfaces/post.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +12,7 @@ export class MessagesService {
 
   constructor(private http: HttpClient) {}
 
-  getMessages(): IMessage[] {
+  getMessages(): Message[] {
     return [
       { id: 1, text: 'Hello' },
       { id: 2, text: 'World' },
@@ -20,7 +20,7 @@ export class MessagesService {
     ];
   }
 
-  getPosts(): Observable<IPost[]> {
-    return this.http.get<IPost[]>(this.apiUrl);
+  getPosts(): Observable<Post[]> {
+    return this.http.get<Post[]>(this.apiUrl);
   }
 }
