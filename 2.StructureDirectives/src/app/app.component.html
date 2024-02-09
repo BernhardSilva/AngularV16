@@ -1,0 +1,19 @@
+<h1>{{ title }}</h1>
+
+<h2 *ngIf="!isLoggedIn">Please login to view the content</h2>
+
+<h2 *ngIf="isLoggedIn && false">Login content</h2>
+<h2 *ngIf="isLoggedIn; else loggedOut">Welcome back, {{ username }}</h2>
+
+<ng-template #loggedOut>Please login</ng-template>
+
+<ul>
+  <li *ngFor="let name of names; let i = index">{{ i + 1 }}.- {{ name }}</li>
+</ul>
+
+<div [ngSwitch]="grade">
+  <p *ngSwitchCase="'A'">Excellent</p>
+  <p *ngSwitchCase="'B'">Good</p>
+  <p *ngSwitchCase="'F'">Bad</p>
+  <p *ngSwitchDefault>Unknow</p>
+</div>

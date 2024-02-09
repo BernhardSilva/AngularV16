@@ -1,0 +1,15 @@
+<div class="flex justify-center">
+  <div>
+    <h1 class="my-5">{{ title | uppercase }}</h1>
+    <p>Today is {{ today }}</p>
+    <p>Today is {{ today | date }}</p>
+    <p>Today is {{ today | date : "fullDate" }}</p>
+    <p>Today is {{ today | date : "dd/MM" }}</p>
+    <p>Today is {{ today | date : "hh:mm:ss" }}</p>
+
+    <p>{{ currency | currency }}</p>
+    <p>{{ currency | currency : "EUR" : "symbol" : "2.1-4" }}</p>
+    <p>{{ percent | customPercent }}</p>
+    <p>{{ title | append : "appendText" }}</p>
+  </div>
+</div>

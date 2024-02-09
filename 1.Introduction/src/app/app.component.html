@@ -1,0 +1,37 @@
+Hello
+
+<!--attr binding-->
+<button type="button" [disabled]="isDisabled">
+  {{ myBtn }}
+</button>
+
+<!--image binding-->
+<img alt="angular" width="150" height="100" [src]="angularImage" />
+
+<!--style binding-->
+<div [style.backgroundColor]="bgColor">
+  <h2 [style.color]="titleColor">{{ title }}</h2>
+  <p [style]="descriptionStyle">{{ description }}</p>
+</div>
+
+<!--class binding-->
+<h2 [class.textColor]="redText">Title</h2>
+<h3 [class.textColor]="blueText == 'yes'">Subtitle</h3>
+
+<!--event binding-->
+<button (click)="incrementCounter()">Increment</button>
+<p>Counter:{{ counter }}</p>
+
+<!--two way data binding-->
+<input [(ngModel)]="inputText" placeholder="Enter text" />
+<p>You entered: {{ inputText }}</p>
+
+<!--ngClass-->
+<div [ngClass]="classes">
+  {{ message }}
+</div>
+
+<!--ngStyle-->
+<div class="color-box" [ngStyle]="{ backgroundColor: selectedColor }">
+  TESTING
+</div>
