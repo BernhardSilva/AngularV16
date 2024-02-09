@@ -1,0 +1,66 @@
+{
+  "products": [
+    {
+      "id": "prod1",
+      "name": "Product 1",
+      "description": "This is product 1",
+      "price": 10.99,
+      "category": "Electronics",
+      "imageUrl": "http://example.com/prod1.jpg",
+      "stock": 100
+    },
+    {
+      "id": "prod2",
+      "name": "Product 2",
+      "description": "This is product 2",
+      "price": 20.99,
+      "category": "Books",
+      "imageUrl": "http://example.com/prod2.jpg",
+      "stock": 50
+    },
+    {
+      "id": "prod3",
+      "name": "Product 3",
+      "description": "This is product 3",
+      "price": 299.99,
+      "category": "Beauty",
+      "imageUrl": "http://example.com/prod3.jpg",
+      "stock": 200
+    }
+  ],
+  "customers": [
+    {
+      "id": "cust1",
+      "name": "John Doe",
+      "email": "john@example.com",
+      "shippingAddress": "123 Main St, Anytown, USA",
+      "billingAddress": "456 Oak St, Anytown, USA"
+    },
+    {
+      "id": "cust2",
+      "name": "Jane Smith",
+      "email": "jane@example.com",
+      "shippingAddress": "789 Pine St, Anytown, USA",
+      "billingAddress": "1011 Elm St, Anytown, USA"
+    }
+  ],
+  "orders": [
+    {
+      "id": "order1",
+      "customerId": "cust1",
+      "items": [
+        {
+          "productId": "prod1",
+          "quantity": 2
+        },
+        {
+          "productId": "prod2",
+          "quantity": 1
+        }
+      ],
+      "total": 42.97,
+      "date": "2022-01-01T12:00:00Z",
+      "status": "Shipped"
+    }
+  ]
+}

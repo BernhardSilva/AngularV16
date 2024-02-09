@@ -1,14 +1,64 @@
 <div>
   <h1>{{ title }}</h1>
 </div>
+<h2>Posts</h2>
 <ul>
   <li *ngFor="let message of messages">{{ message.id }} -{{ message.text }}</li>
 </ul>
 <div>
   <div *ngIf="loading">
-    <ul>
+    <!-- <ul>
       <li *ngFor="let post of posts$">{{ post.id }} -{{ post.body }}</li>
-    </ul>
+      <hr class="separator" />
+    </ul> -->
+
+    <!-- <input type="text" formControlName="rut" formatRutDirective> -->
+
+    
+    <div>
+      <label>
+        Filter by ID:
+        <input
+          [(ngModel)]="idFilter"
+          placeholder="Enter ID"
+          (input)="applyIdFilter(idFilter)"
+        />
+      </label>
+      <label>
+        Filter by Title:
+        <input
+          [(ngModel)]="titleFilter"
+          placeholder="Enter Title"
+          (input)="applyTitleFilter(titleFilter)"
+        />
+      </label>
+    </div>
+    <table mat-table [dataSource]="dataSource" matSort>
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let post">{{ post.id }}</td>
+      </ng-container>
+
+      <!-- Title Column -->
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+        <td mat-cell *matCellDef="let post">{{ post.title }}</td>
+      </ng-container>
+
+      <!-- Body Column -->
+      <ng-container matColumnDef="body">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Body</th>
+        <td mat-cell *matCellDef="let post">{{ post.body }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['id', 'title', 'body']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['id', 'title', 'body']"></tr>
+    </table>
+    <mat-paginator
+      [pageSizeOptions]="pagination"
+      showFirstLastButtons
+    ></mat-paginator>
   </div>
   <div *ngIf="!loading" class="loading-overlay">
     <mat-spinner>loading</mat-spinner>
