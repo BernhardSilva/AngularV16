@@ -28,15 +28,23 @@ input {
   }
 }
 
-button[type="submit"] {
+button {
   padding: 10px;
   font-size: 16px;
-  background-color: #149cdb;
-  color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+
+  &:disabled {
+    background-color: #dcdcdc;
+    cursor: not-allowed;
+  }
+}
+
+button[type="submit"] {
+  background-color: #149cdb;
+  color: white;
 
   &:hover {
     background-color: #87cefa;
@@ -48,23 +56,21 @@ button[type="submit"] {
   }
 }
 
-button[type="button"] {
-  padding: 10px;
-  font-size: 16px;
+.add-button {
   background-color: #149cdb;
   color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
 
   &:hover {
-    background-color: #87cefa;
+    background-color: #3cb4ff;
   }
+}
 
-  &:disabled {
-    background-color: #dcdcdc;
-    cursor: not-allowed;
+.remove-button {
+  background-color: #db1414;
+  color: white;
+
+  &:hover {
+    background-color: #ff3333;
   }
 }
 
