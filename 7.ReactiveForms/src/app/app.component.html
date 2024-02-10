@@ -1,0 +1,59 @@
+<h2>{{ title }}</h2>
+
+<form [formGroup]="userForm" (ngSubmit)="submitForm()">
+  <div class="form-item">
+    <label for="name">{{ formLabels.name }}</label>
+    <input type="text" formControlName="name" id="name" placeholder="John" />
+  </div>
+  <div class="form-item">
+    <label for="email">{{ formLabels.email }}</label>
+    <input
+      type="email"
+      formControlName="email"
+      id="email"
+      placeholder="example@gob.com"
+    />
+  </div>
+  <div class="form-item">
+    <label for="password">{{ formLabels.password }}</label>
+    <input
+      type="password"
+      formControlName="password"
+      id="password"
+      placeholder="*********"
+    />
+  </div>
+  <div formGroupName="address" class="form-item">
+    <label for="city">{{ formLabels.city }}</label>
+    <input
+      type="text"
+      formControlName="city"
+      id="city"
+      placeholder="ex: Berlín"
+    />
+    <label for="street">{{ formLabels.street }}</label>
+    <input
+      type="text"
+      formControlName="street"
+      id="street"
+      placeholder="ex: 123 Avenue"
+    />
+  </div>
+  <div formArrayName="phoneNumbers" class="form-item">
+    <div *ngFor="let phoneNumber of phoneNumbers.controls; index as i">
+      <label>{{ formLabels.phoneNumber }} {{ i + 1 }}: </label>
+      <input type="tel" [formControlName]="i" placeholder="Phone Number" />
+      <button type="button" (click)="removePhoneNumber(i)">Remove</button>
+    </div>
+    <div>
+      <button type="button" (click)="addPhoneNumber()">Add Phone Number</button>
+    </div>
+  </div>
+  <div>
+    <label class="error-message">{{ errorMessages }}</label>
+  </div>
+  <div>
+    <!-- <button type="submit" [disabled]="!userForm.valid">Submit</button> -->
+    <button type="submit" [disabled]="userForm.invalid">Submit</button>
+  </div>
+</form>

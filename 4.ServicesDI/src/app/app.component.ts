@@ -17,7 +17,7 @@ import { MessagesService } from './services/messages.service';
 export class AppComponent implements OnInit {
   title = '4.ServicesDI';
   messages: Message[] = this.messagesService.getMessages() || [];
-  posts$: Observable<Post[]> | any = [];
+  posts$: Observable<Post[]> | never[] = [];
   loading: boolean = false;
   displayedColumns: string[] = ['userId', 'id', 'title', 'body'];
   dataSource!: MatTableDataSource<Post>;
